@@ -38,11 +38,11 @@ const SITE = {
 
 // `img` shows a photo; without it the card uses the matching illustration from js/art.js
 const GAMES = [
-  { id: 'slots',       title: 'Slots',          art: 'slots',   img: 'images/populargames/4.webp', desc: 'Spin classic and modern reels and chase the jackpot.' },
-  { id: 'sports',      title: 'Sports Betting', art: 'sports',  img: 'images/populargames/2.webp', desc: 'Back your favourite teams across popular sports.' },
-  { id: 'live-games',  title: 'Live Casino',    art: 'live',    img: 'images/populargames/1.webp', desc: 'Real dealers and real-time tables, streamed to you.', live: true },
-  { id: 'table-games', title: 'Casino Games',   art: 'cards',   img: 'images/populargames/3.webp', desc: 'Blackjack, baccarat and more table classics.' },
-  { id: 'aviator',     title: 'Aviator',        art: 'aviator', img: 'images/populargames/5.webp', desc: 'Watch the plane climb and cash out before it flies away.' },
+  { id: 'slots',       title: 'Slots',          art: 'slots',   icon: 'cherry',    cat: 'Casino',  badge: 'Popular', img: 'images/populargames/4.webp', desc: 'Spin classic and modern reels and chase the jackpot.' },
+  { id: 'sports',      title: 'Sports Betting', art: 'sports',  icon: 'trophy',    cat: 'Sports',  badge: 'Popular', img: 'images/populargames/2.webp', desc: 'Back your favourite teams across popular sports.' },
+  { id: 'live-games',  title: 'Live Casino',    art: 'live',    icon: 'tv',        cat: 'Live',    live: true,       img: 'images/populargames/1.webp', desc: 'Real dealers and real-time tables, streamed to you.' },
+  { id: 'table-games', title: 'Casino Games',   art: 'cards',   icon: 'spade',     cat: 'Table',   img: 'images/populargames/3.webp', desc: 'Blackjack, baccarat and more table classics.' },
+  { id: 'aviator',     title: 'Aviator',        art: 'aviator', icon: 'zap',       cat: 'Crash',   badge: 'New',     img: 'images/populargames/5.webp', desc: 'Watch the plane climb and cash out before it flies away.' },
 ];
 
 // Player reviews – shown as an auto-sliding carousel. With an empty list the
@@ -71,17 +71,25 @@ const isWebUrl = url => /^https?:\/\//i.test(url);
 /* ---------- Render: games carousel ---------- */
 document.getElementById('gamesGrid').innerHTML = GAMES.map((g, i) => `
   <li id="${g.id}" role="group" aria-roledescription="slide" aria-label="${i + 1} of ${GAMES.length}: ${escapeHtml(g.title)}">
-    <article class="card game-card group">
+    <article class="game-card group">
       <div class="game-media">
         <div class="art fallback-art" data-illustration="${g.art}"></div>
         ${g.img ? `<img src="${escapeHtml(g.img)}" alt="" loading="lazy" data-art>` : ''}
-        <div class="game-overlay"></div>
-        ${g.live ? '<span class="tag game-label"><span class="live-dot"></span> Live</span>' : ''}
       </div>
-      <div class="flex flex-1 flex-col p-5 sm:p-6">
-        <h3 class="t-h3">${escapeHtml(g.title)}</h3>
-        <p class="t-body mt-1.5 flex-1 !text-sm">${escapeHtml(g.desc)}</p>
-        <a href="#join" data-route="play" class="btn btn-primary btn-sm mt-5 w-full">Play now<span class="sr-only">: ${escapeHtml(g.title)}</span> <i data-icon="arrow-right" class="icon-arrow"></i></a>
+      <div class="game-shade" aria-hidden="true"></div>
+
+      <div class="game-top">
+        ${g.live
+          ? '<span class="game-badge game-badge-live"><span class="live-dot"></span> Live</span>'
+          : g.badge ? `<span class="game-badge">${escapeHtml(g.badge)}</span>` : '<span></span>'}
+        <span class="game-icon" aria-hidden="true"><i data-icon="${g.icon}"></i></span>
+      </div>
+
+      <div class="game-panel">
+        <p class="game-cat">${escapeHtml(g.cat)}</p>
+        <h3 class="game-title">${escapeHtml(g.title)}</h3>
+        <p class="game-desc">${escapeHtml(g.desc)}</p>
+        <a href="#join" data-route="play" class="btn btn-primary btn-sm game-play stretched">Play now<span class="sr-only">: ${escapeHtml(g.title)}</span> <i data-icon="arrow-right" class="icon-arrow"></i></a>
       </div>
     </article>
   </li>`).join('');
@@ -130,6 +138,20 @@ document.querySelectorAll('[data-carousel]').forEach(root => {
         <button type="button" class="icon-btn" data-carousel-next aria-label="Next ${noun}"><i data-icon="chevron-right"></i></button>
       </div>
     </div>`);
+});
+
+/* ---------- Running marquee: repeat the items so the loop is seamless ---------- */
+document.querySelectorAll('[data-marquee]').forEach(track => {
+  const items = [...track.children];
+  // Enough copies to cover wide screens; the CSS animation moves exactly one half
+  const copies = 2;
+  for (let c = 1; c < copies * 2; c++) {
+    items.forEach(item => {
+      const clone = item.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      track.appendChild(clone);
+    });
+  }
 });
 
 /* ---------- Artwork & icons (js/art.js, js/icons.js) ---------- */
@@ -569,6 +591,7 @@ const navbar = document.getElementById('navbar');
 const progressBar = document.getElementById('scrollProgress');
 const toTop = document.getElementById('toTop');
 const parallaxItems = reduceMotion ? [] : [...document.querySelectorAll('[data-parallax]')];
+const driftItems = reduceMotion ? [] : [...document.querySelectorAll('[data-drift]')];
 let lastY = window.scrollY;
 let scrollTicking = false;
 
@@ -593,6 +616,14 @@ function onScroll() {
     if (rect.bottom < -200 || rect.top > vh + 200) return;
     const offset = (rect.top + rect.height / 2 - vh / 2) * -parseFloat(el.dataset.parallax);
     el.style.translate = `0 ${offset.toFixed(1)}px`;
+  });
+
+  // Background wordmarks drift sideways as their section passes through
+  driftItems.forEach(el => {
+    const rect = el.parentElement.getBoundingClientRect();
+    if (rect.bottom < 0 || rect.top > vh) return;
+    const offset = (rect.top + rect.height / 2 - vh / 2) * parseFloat(el.dataset.drift);
+    el.style.translate = `${offset.toFixed(1)}px 0`;
   });
 
   scrollTicking = false;
@@ -649,6 +680,15 @@ document.querySelectorAll('.reveal').forEach(el => {
   const order = Math.min(siblings.indexOf(el), 4);
   if (order > 0) el.style.transitionDelay = `${order * 110}ms`;
   revealObserver.observe(el);
+});
+
+/* ---------- Card spotlight: follows the pointer on [data-spotlight] cards ---------- */
+document.querySelectorAll('[data-spotlight]').forEach(card => {
+  card.addEventListener('pointermove', e => {
+    const r = card.getBoundingClientRect();
+    card.style.setProperty('--mx', `${e.clientX - r.left}px`);
+    card.style.setProperty('--my', `${e.clientY - r.top}px`);
+  });
 });
 
 /* ---------- Count-up for verified figures marked with data-count ---------- */
