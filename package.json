@@ -1,0 +1,9 @@
+{
+  "name": "my99exch-site",
+  "private": true,
+  "description": "MY99EXCH landing page",
+  "scripts": {
+    "build:css": "npx --yes tailwindcss@3.4.17 -c tailwind.config.cjs -i src/tailwind.css -o css/tailwind.css --minify",
+    "watch:css": "npx --yes tailwindcss@3.4.17 -c tailwind.config.cjs -i src/tailwind.css -o css/tailwind.css --watch"
+  }
+}

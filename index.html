@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MY99EXCH – Play Bigger, Win Bigger | Slots, Live Casino &amp; Sports</title>
+  <meta name="description"
+    content="Slots, live casino, sports betting and Aviator on MY99EXCH, with convenient UPI deposits and withdrawals and 24/7 support. 18+ only – please play responsibly.">
+  <meta name="theme-color" content="#08031D">
+
+  <!-- Icons -->
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+  <!-- Social sharing (add og:url and an absolute og:image once the live domain is known) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="MY99EXCH">
+  <meta property="og:title" content="MY99EXCH – Play Bigger, Win Bigger">
+  <meta property="og:description"
+    content="Slots, live casino, sports betting and Aviator with convenient UPI deposits and withdrawals and 24/7 support. 18+ only.">
+  <meta name="twitter:card" content="summary">
+
+  <!-- Fonts: Outfit (headings) · Inter (body, navigation, buttons) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap">
+
+  <!-- Design system (brand tokens & components), then compiled Tailwind utilities.
+       Rebuild css/tailwind.css with `npm run build:css` after changing classes. -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/tailwind.css">
+</head>
+
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <div class="ambient" aria-hidden="true"></div>
+
+  <!-- ═════════ Header ═════════ -->
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
+
+  <header id="navbar" class="site-header">
+    <nav class="wrap flex h-[72px] items-center justify-between gap-4" aria-label="Main navigation">
+      <a href="#home" class="shrink-0" aria-label="MY99EXCH home">
+        <img src="images/my99exch-logo-400.webp" alt="MY99EXCH" width="400" height="80" class="h-7 w-auto sm:h-9">
+      </a>
+
+      <ul class="hidden items-center gap-6 xl:flex">
+        <li><a href="#home" class="nav-link active" data-nav="home" aria-current="true">Home</a></li>
+        <li><a href="#about" class="nav-link" data-nav="about">About Us</a></li>
+        <li><a href="#games" class="nav-link" data-nav="games">Games</a></li>
+        <li><a href="#live-casino" class="nav-link" data-nav="live-casino">Live Casino</a></li>
+        <li><a href="#sports" class="nav-link" data-nav="sports">Sports</a></li>
+        <li><a href="#promotions" class="nav-link" data-nav="promotions">Promotions</a></li>
+        <li><a href="#" class="nav-link" data-route="blog">Blog</a></li>
+        <li><a href="#contact" class="nav-link" data-nav="contact">Contact</a></li>
+      </ul>
+
+      <div class="flex items-center gap-1.5 sm:gap-2">
+        <a href="#join" data-route="login" class="btn btn-tertiary btn-sm hidden md:inline-flex"><i
+            data-icon="log-in"></i> Login</a>
+        <a href="#join" data-route="register" class="btn btn-primary btn-sm"><span
+            class="sm:hidden">Register</span><span class="hidden sm:inline">Register Now</span></a>
+        <button id="menuBtn" type="button" class="icon-btn xl:hidden" aria-label="Open menu" aria-expanded="false"
+          aria-controls="mobileMenu">
+          <span data-menu-open><i data-icon="menu"></i></span>
+          <span data-menu-close hidden><i data-icon="x"></i></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="xl:hidden">
+      <div data-lenis-prevent>
+        <ul class="wrap pb-6 pt-1">
+          <li><a href="#home" class="mobile-link active" data-nav="home">Home <i data-icon="chevron-right"></i></a></li>
+          <li><a href="#about" class="mobile-link" data-nav="about">About Us <i data-icon="chevron-right"></i></a></li>
+          <li><a href="#games" class="mobile-link" data-nav="games">Games <i data-icon="chevron-right"></i></a></li>
+          <li><a href="#live-casino" class="mobile-link" data-nav="live-casino">Live Casino <i
+                data-icon="chevron-right"></i></a></li>
+          <li><a href="#sports" class="mobile-link" data-nav="sports">Sports <i data-icon="chevron-right"></i></a></li>
+          <li><a href="#promotions" class="mobile-link" data-nav="promotions">Promotions <i
+                data-icon="chevron-right"></i></a></li>
+          <li><a href="#" class="mobile-link" data-route="blog">Blog <i data-icon="chevron-right"></i></a></li>
+          <li><a href="#contact" class="mobile-link" data-nav="contact">Contact <i data-icon="chevron-right"></i></a>
+          </li>
+          <li class="flex gap-3 pt-5">
+            <a href="#join" data-route="login" class="btn btn-ghost flex-1">Login</a>
+            <a href="#join" data-route="register" class="btn btn-primary flex-1">Register Now</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ═════════ Hero slider ═════════ -->
+    <section id="home" class="hero" aria-label="Featured">
+      <div class="hero-lighting" aria-hidden="true">
+        <span class="hero-beam right-0 top-[16%] w-[55%]"></span>
+        <span class="hero-beam right-0 top-[28%] w-[38%] opacity-60"></span>
+      </div>
+
+      <div class="wrap pb-10 pt-10 md:pt-14 lg:pb-12 lg:pt-16">
+        <div class="slider" data-slider aria-roledescription="carousel" aria-label="MY99EXCH highlights">
+          <div class="slider-viewport" data-slider-viewport aria-live="off">
+
+            <!-- Slide 1: Play bigger -->
+            <article class="slide is-active" data-slide aria-roledescription="slide" aria-label="1 of 3">
+              <div>
+                <span class="tag"><i data-icon="sparkles"></i> Premium online gaming</span>
+                <h1 class="t-display mt-6">Play Bigger,<br><span class="text-gold-grad">Win Bigger</span></h1>
+                <p class="t-lead mt-6 max-w-[34rem]">Slots, live casino, sports betting and Aviator in one place – with
+                  convenient UPI payments and support around the clock.</p>
+                <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+                  <a href="#join" data-route="register" class="btn btn-primary btn-lg w-full sm:w-auto">Register Now <i
+                      data-icon="arrow-right" class="icon-arrow"></i></a>
+                  <a href="#games" class="btn btn-secondary btn-lg w-full sm:w-auto"><i data-icon="gamepad-2"></i>
+                    Explore Games</a>
+                </div>
+                <ul class="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm text-snow/85">
+                  <li class="flex items-center gap-2"><i data-icon="shield-check"
+                      class="h-[18px] w-[18px] text-gold"></i> Secure play</li>
+                  <li class="flex items-center gap-2"><i data-icon="indian-rupee"
+                      class="h-[18px] w-[18px] text-gold"></i> UPI payments</li>
+                  <li class="flex items-center gap-2"><i data-icon="headset" class="h-[18px] w-[18px] text-gold"></i>
+                    24/7 support</li>
+                </ul>
+              </div>
+
+              <div class="hero-visual" data-parallax="0.06" aria-hidden="true">
+                <div class="absolute inset-[12%] rounded-full bg-purple/35 blur-3xl"></div>
+                <img src="images/banner/bn1.webp" alt="" width="600" height="600" fetchpriority="high"
+                  class="hero-cutout">
+                <div class="absolute inset-[3%] rounded-full border border-purple/30"></div>
+                <div class="absolute inset-[15%] rounded-full border border-gold/20"></div>
+                <div class="float-chip right-0 top-[10%] sm:right-[2%]">
+                  <span class="icon-circle"><i data-icon="indian-rupee"></i></span>
+                  <span class="leading-tight"><span class="block text-xs text-muted">Payments</span><span
+                      class="block text-sm font-semibold">UPI deposits &amp; withdrawals</span></span>
+                </div>
+                <div class="float-chip bottom-[9%] left-0 sm:left-[2%]">
+                  <span class="icon-circle"><i data-icon="crown"></i></span>
+                  <span class="leading-tight"><span class="block text-xs text-muted">Featured</span><span
+                      class="block text-sm font-semibold">Slots · Live · Sports</span></span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Slide 2: Games -->
+            <article class="slide" data-slide aria-roledescription="slide" aria-label="2 of 3">
+              <div>
+                <span class="tag"><i data-icon="gamepad-2"></i> Game lobby</span>
+                <h2 class="t-display mt-6">Explore<br><span class="text-gold-grad">Premium Games</span></h2>
+                <p class="t-lead mt-6 max-w-[34rem]">Spin the reels, back your team, join a live table or take a seat at
+                  the classics – all from one account.</p>
+                <ul class="mt-7 flex flex-wrap gap-2.5">
+                  <li><a href="#slots" class="chip-link"><i data-icon="cherry"></i> Slots</a></li>
+                  <li><a href="#sports" class="chip-link"><i data-icon="trophy"></i> Sports betting</a></li>
+                  <li><a href="#live-games" class="chip-link"><i data-icon="tv"></i> Live casino</a></li>
+                  <li><a href="#table-games" class="chip-link"><i data-icon="spade"></i> Table games</a></li>
+                </ul>
+                <div class="mt-8">
+                  <a href="#games" class="btn btn-primary btn-lg w-full sm:w-auto">Explore Games <i
+                      data-icon="arrow-right" class="icon-arrow"></i></a>
+                </div>
+              </div>
+
+              <div class="hero-visual" data-parallax="0.06" aria-hidden="true">
+                <div class="absolute inset-[10%] rounded-full bg-purple/35 blur-3xl"></div>
+                <div class="absolute inset-[3%] rounded-full border border-purple/30"></div>
+                <div class="absolute inset-[15%] rounded-full border border-gold/20"></div>
+                <img src="images/banner/bn2.webp" alt="" width="600" height="600" fetchpriority="low"
+                  class="hero-cutout">
+                <div class="float-chip bottom-[8%] left-0 sm:left-[2%]">
+                  <span class="icon-circle"><i data-icon="gamepad-2"></i></span>
+                  <span class="leading-tight"><span class="block text-xs text-muted">One account</span><span
+                      class="block text-sm font-semibold">Casino · Sports · Live</span></span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Slide 3: Payments -->
+            <article class="slide" data-slide aria-roledescription="slide" aria-label="3 of 3">
+              <div>
+                <span class="tag"><i data-icon="wallet"></i> UPI payments</span>
+                <h2 class="t-display mt-6">Fast &amp; Convenient<br><span class="text-gold-grad">Payments</span></h2>
+                <p class="t-lead mt-6 max-w-[34rem]">Deposit and withdraw with UPI, right from your phone. See the
+                  supported methods and how payments work before you play.</p>
+                <ul class="mt-7 flex flex-wrap gap-2.5">
+                  <li class="tag"><i data-icon="check"></i> UPI deposits</li>
+                  <li class="tag"><i data-icon="check"></i> UPI withdrawals</li>
+                  <li class="tag"><i data-icon="check"></i> Payment help 24/7</li>
+                </ul>
+                <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+                  <a href="#payments" class="btn btn-primary btn-lg w-full sm:w-auto">Payment Information <i
+                      data-icon="arrow-right" class="icon-arrow"></i></a>
+                  <a href="#faq-payments" class="btn btn-secondary btn-lg w-full sm:w-auto"><i
+                      data-icon="circle-help"></i> Payment FAQs</a>
+                </div>
+              </div>
+
+              <div class="hero-visual" data-parallax="0.06" aria-hidden="true">
+                <div class="absolute inset-[12%] rounded-full bg-purple/35 blur-3xl"></div>
+                <div class="absolute inset-[3%] rounded-full border border-purple/25"></div>
+                <div class="absolute inset-[15%] rounded-full border border-gold/15"></div>
+
+                <img src="images/banner/bn3.png" alt="" width="600" height="600" fetchpriority="low"
+                  class="hero-cutout">
+              </div>
+            </article>
+          </div>
+
+          <!-- Slider controls -->
+          <div class="slider-controls">
+            <div class="flex items-center gap-3">
+              <div class="slider-dots" role="group" aria-label="Choose a slide">
+                <button type="button" class="slider-dot is-active" data-slide-dot
+                  aria-label="Slide 1: Play bigger, win bigger" aria-current="true"><span class="slider-dot-track"><span
+                      class="slider-dot-fill"></span></span></button>
+                <button type="button" class="slider-dot" data-slide-dot
+                  aria-label="Slide 2: Explore premium games"><span class="slider-dot-track"><span
+                      class="slider-dot-fill"></span></span></button>
+                <button type="button" class="slider-dot" data-slide-dot
+                  aria-label="Slide 3: Fast and convenient payments"><span class="slider-dot-track"><span
+                      class="slider-dot-fill"></span></span></button>
+              </div>
+              <p class="slider-count hidden sm:block" aria-hidden="true"><strong data-slide-current>01</strong> / 03</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <button type="button" class="icon-btn" data-slider-toggle aria-label="Pause slideshow">
+                <span data-when-playing><i data-icon="pause"></i></span>
+                <span data-when-paused hidden><i data-icon="play"></i></span>
+              </button>
+              <button type="button" class="icon-btn" data-slider-prev aria-label="Previous slide"><i
+                  data-icon="chevron-left"></i></button>
+              <button type="button" class="icon-btn" data-slider-next aria-label="Next slide"><i
+                  data-icon="chevron-right"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═════════ Trust & stats ═════════ -->
+      <!-- To show a verified figure, swap a .stat-title for e.g.
+           <p class="stat-value text-gold-grad"><span data-count="50000">50,000</span>+</p>
+           and it will count up when scrolled into view. -->
+      <div class="wrap pb-16 md:pb-20">
+        <ul id="stats" class="stats glass !rounded-card" aria-label="Why players choose MY99EXCH">
+          <li class="stat">
+            <span class="icon-circle"><i data-icon="users"></i></span>
+            <div>
+              <p class="stat-title">Happy Players</p>
+              <p class="stat-text">A friendly community of players</p>
+            </div>
+          </li>
+          <li class="stat">
+            <span class="icon-circle"><i data-icon="zap"></i></span>
+            <div>
+              <p class="stat-title">Fast Withdrawals</p>
+              <p class="stat-text">Withdraw your winnings via UPI</p>
+            </div>
+          </li>
+          <li class="stat">
+            <span class="icon-circle"><i data-icon="shield-check"></i></span>
+            <div>
+              <p class="stat-title">Secure &amp; Fair Play</p>
+              <p class="stat-text">Your account safety comes first</p>
+            </div>
+          </li>
+          <li class="stat">
+            <span class="icon-circle"><i data-icon="headset"></i></span>
+            <div>
+              <p class="stat-title">24/7 Support</p>
+              <p class="stat-text">Help whenever you need it</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ═════════ About / welcome ═════════ -->
+    <section id="about" class="section about-stage">
+      <div class="wrap grid items-center gap-14 lg:grid-cols-2">
+        <div data-reveal="left" class="reveal">
+          <p class="eyebrow">Welcome to MY99EXCH</p>
+          <h2 class="t-h2 mt-4">Your home for <span class="text-gold-grad text-glow">premium online gaming</span></h2>
+          <div class="t-lead mt-6 max-w-[36rem] space-y-4">
+            <p>MY99EXCH brings slots, live casino, sports betting and Aviator together on one easy-to-use platform.</p>
+            <p>Deposit and withdraw with UPI, explore new games at your own pace and reach our support team whenever you
+              need help.</p>
+          </div>
+
+          <ul class="check-list mt-8 sm:grid-cols-2">
+            <li><i data-icon="circle-check"></i> Fast UPI withdrawals</li>
+            <li><i data-icon="circle-check"></i> Bonuses &amp; offers</li>
+            <li><i data-icon="circle-check"></i> Slots, sports &amp; live casino</li>
+            <li><i data-icon="circle-check"></i> Mobile-friendly play</li>
+            <li><i data-icon="circle-check"></i> 24/7 customer support</li>
+            <li><i data-icon="circle-check"></i> Easy registration</li>
+          </ul>
+
+          <div class="mt-10 flex flex-col gap-3 sm:flex-row">
+            <a href="#join" data-route="register" class="btn btn-primary btn-lg w-full sm:w-auto">Register Now <i
+                data-icon="arrow-right" class="icon-arrow"></i></a>
+            <a href="#games" data-route="lobby" class="btn btn-secondary btn-lg w-full sm:w-auto"><i
+                data-icon="gamepad-2"></i> Play Now</a>
+          </div>
+        </div>
+
+        <!-- About artwork: crystal trophy on a lit stage -->
+        <div data-reveal="right" class="about-art reveal" data-parallax="0.08">
+          <span class="about-beam" aria-hidden="true"></span>
+          <span class="about-floor" aria-hidden="true"></span>
+          <img src="images/banner/about.webp" width="600" height="600" loading="lazy"
+               alt="Crystal trophy with a crown, surrounded by a cricket bat, football, basketball, tennis ball, shuttlecock and dartboard">
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════ Why choose ═════════ -->
+    <section id="why" class="section">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow">Why choose us</p>
+          <h2 class="t-h2">Why players choose <span class="text-gold-grad">MY99EXCH</span></h2>
+          <p class="t-lead">A smooth, enjoyable experience – from your first deposit to your favourite game.</p>
+        </div>
+
+        <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <article class="reveal card card-hover flex flex-col p-6 sm:p-7">
+            <span class="icon-badge"><i data-icon="shield-check"></i></span>
+            <h3 class="t-h3 mt-6">Secure &amp; Fair Play</h3>
+            <p class="t-body mt-2 flex-1">Account verification, clear game rules and responsible-gaming support help
+              keep play fair and safe.</p>
+            <a href="#payments" class="link-arrow mt-4">Learn more<span class="sr-only"> about security</span> <i
+                data-icon="arrow-right"></i></a>
+          </article>
+          <article class="reveal card card-hover flex flex-col p-6 sm:p-7">
+            <span class="icon-badge"><i data-icon="wallet"></i></span>
+            <h3 class="t-h3 mt-6">Convenient UPI Payments</h3>
+            <p class="t-body mt-2 flex-1">Deposit and withdraw with UPI – a familiar way to pay that works right from
+              your phone.</p>
+            <a href="#payments" class="link-arrow mt-4">Learn more<span class="sr-only"> about UPI payments</span> <i
+                data-icon="arrow-right"></i></a>
+          </article>
+          <article class="reveal card card-hover flex flex-col p-6 sm:p-7">
+            <span class="icon-badge"><i data-icon="gift"></i></span>
+            <h3 class="t-h3 mt-6">Bonuses &amp; Promotions</h3>
+            <p class="t-body mt-2 flex-1">Welcome bonuses and regular offers that make your play go further. Terms apply
+              to every offer.</p>
+            <a href="#promotions" class="link-arrow mt-4">Learn more<span class="sr-only"> about promotions</span> <i
+                data-icon="arrow-right"></i></a>
+          </article>
+          <article class="reveal card card-hover flex flex-col p-6 sm:p-7">
+            <span class="icon-badge"><i data-icon="headset"></i></span>
+            <h3 class="t-h3 mt-6">24/7 Customer Support</h3>
+            <p class="t-body mt-2 flex-1">Questions about your account, payments or games? Our team is here around the
+              clock.</p>
+            <a href="#faq-support" class="link-arrow mt-4">Learn more<span class="sr-only"> about customer
+                support</span> <i data-icon="arrow-right"></i></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════ Popular games (cards rendered from js/main.js) ═════════ -->
+    <section id="games" class="section bg-band">
+      <div class="wrap">
+        <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div class="section-head reveal">
+            <p class="eyebrow">Popular games</p>
+            <h2 class="t-h2">Explore our most <span class="text-gold-grad">popular games</span></h2>
+            <p class="t-lead">From spinning reels to live tables – pick your favourite and start playing.</p>
+          </div>
+          <a href="#" data-route="games" class="btn btn-secondary shrink-0 self-start md:self-auto"><i
+              data-icon="layout-grid"></i> View All Games</a>
+        </div>
+        <div class="slider carousel reveal mt-10 md:mt-12" data-carousel="game" aria-roledescription="carousel"
+          aria-label="Game categories">
+          <ul id="gamesGrid" class="carousel-track" data-carousel-track tabindex="0" aria-live="off"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════ Promotions & live casino ═════════ -->
+    <section id="promotions" class="section">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow">Promotions &amp; live casino</p>
+          <h2 class="t-h2">More reasons to <span class="text-gold-grad">play</span></h2>
+          <p class="t-lead">Make the most of your first deposit, then take a seat at a live table.</p>
+        </div>
+
+        <div class="promo-grid mt-12">
+          <!-- Welcome bonus -->
+          <article class="promo promo-bonus reveal">
+            <div class="promo-media" aria-hidden="true">
+              <div class="promo-gift">
+                <div class="art mask-radial" data-illustration="gift"></div>
+              </div>
+              <span class="tag promo-badge"><i data-icon="gift"></i> For new players</span>
+            </div>
+            <div class="promo-body">
+              <h3 class="t-h3-lg">Welcome <span class="text-gold-grad">Bonus</span></h3>
+              <p class="t-body mt-3">Start your MY99EXCH journey with a welcome bonus for new players. Eligibility and
+                bonus terms apply.</p>
+              <ol class="promo-steps mt-6" aria-label="How to claim your welcome bonus">
+                <li><span class="step-num">1</span> Sign up</li>
+                <li><span class="step-num">2</span> Make a deposit</li>
+                <li><span class="step-num">3</span> Get your bonus</li>
+              </ol>
+              <div class="promo-actions">
+                <a href="#join" data-route="register" class="btn btn-primary">Claim Bonus <i data-icon="arrow-right"
+                    class="icon-arrow"></i></a>
+                <a href="#faq-bonus" data-legal="terms" data-fallback="#faq-bonus" class="text-link text-sm">Bonus terms
+                  apply</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Live casino -->
+          <article id="live-casino" class="promo promo-live reveal">
+            <div class="promo-media" aria-hidden="true">
+              <img src="images/footer-casino-left.webp" alt="" width="720" height="720" loading="lazy"
+                class="promo-photo">
+              <span class="tag promo-badge"><span class="live-dot"></span> Live casino</span>
+            </div>
+            <div class="promo-body">
+              <h3 class="t-h3-lg">Real dealers, <span class="text-gold-grad">real time</span></h3>
+              <p class="t-body mt-3">Live tables streamed straight to your screen – the feel of a real casino, wherever
+                you are.</p>
+              <ul class="mt-6 flex flex-wrap gap-2" aria-label="Live table games">
+                <li class="tag"><i data-icon="spade"></i> Blackjack</li>
+                <li class="tag"><i data-icon="circle-dot"></i> Roulette</li>
+                <li class="tag"><i data-icon="diamond"></i> Baccarat</li>
+              </ul>
+              <div class="promo-actions">
+                <a href="#join" data-route="play" class="btn btn-primary">Play Now <i data-icon="arrow-right"
+                    class="icon-arrow"></i></a>
+                <a href="#live-games" class="link-arrow">See live games <i data-icon="arrow-right"></i></a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════ Payments & security ═════════ -->
+    <section id="payments" class="section bg-band">
+      <div class="wrap grid items-center gap-10 lg:grid-cols-[1.05fr_1fr] lg:gap-14">
+        <div data-reveal="left" class="reveal">
+          <p class="eyebrow">Payments &amp; security</p>
+          <h2 class="t-h2 mt-4">Simple payments, <span class="text-gold-grad">account safety first</span></h2>
+          <p class="t-lead mt-5 max-w-[36rem]">Deposit and withdraw with UPI, and keep your account protected with a few
+            simple habits.</p>
+
+          <ul class="mt-8 space-y-5">
+            <li class="flex gap-4">
+              <span class="icon-badge h-11 w-11"><i data-icon="badge-check"></i></span>
+              <div>
+                <h3 class="font-display font-semibold">Account verification</h3>
+                <p class="t-body mt-1">We may ask you to verify your identity (KYC) to protect your account and your
+                  withdrawals.</p>
+              </div>
+            </li>
+            <li class="flex gap-4">
+              <span class="icon-badge h-11 w-11"><i data-icon="key-round"></i></span>
+              <div>
+                <h3 class="font-display font-semibold">Keep your login private</h3>
+                <p class="t-body mt-1">Never share your password, OTP or UPI PIN with anyone – not even someone who says
+                  they're from support.</p>
+              </div>
+            </li>
+            <li class="flex gap-4">
+              <span class="icon-badge h-11 w-11"><i data-icon="hand-heart"></i></span>
+              <div>
+                <h3 class="font-display font-semibold">Play responsibly</h3>
+                <p class="t-body mt-1">Set a budget and take regular breaks. If gaming stops being fun, our support team
+                  can help.</p>
+              </div>
+            </li>
+          </ul>
+
+          <div class="mt-8 flex flex-wrap gap-x-6">
+            <a href="#faq-payments" class="link-arrow">Payment FAQs <i data-icon="arrow-right"></i></a>
+            <a href="#faq-withdrawal" class="link-arrow">Withdrawal status <i data-icon="arrow-right"></i></a>
+            <a href="#" data-legal="privacy" class="link-arrow">Privacy policy <i data-icon="arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Add a method here only once the platform supports it -->
+        <div data-reveal="right" class="reveal glass p-6 sm:p-8">
+          <p class="eyebrow">Supported payment methods</p>
+          <ul class="mt-5 grid gap-3">
+            <li class="method-tile">
+              <span class="icon-badge"><i data-icon="indian-rupee"></i></span>
+              <div class="flex-1">
+                <p class="upi-mark text-gold-grad">UPI</p>
+                <p class="t-small mt-1">Deposits &amp; withdrawals</p>
+              </div>
+              <span class="tag !text-xs"><i data-icon="check"></i> Supported</span>
+            </li>
+          </ul>
+
+          <h3 class="mt-8 font-display text-lg font-semibold">How UPI payments work</h3>
+          <ol class="mt-4 space-y-4">
+            <li class="flex gap-3"><span class="step-num">1</span>
+              <div>
+                <p class="font-medium">Choose UPI</p>
+                <p class="t-small">Pick UPI as your method when you deposit or withdraw.</p>
+              </div>
+            </li>
+            <li class="flex gap-3"><span class="step-num">2</span>
+              <div>
+                <p class="font-medium">Check the details</p>
+                <p class="t-small">Confirm the amount and your UPI ID before you continue.</p>
+              </div>
+            </li>
+            <li class="flex gap-3"><span class="step-num">3</span>
+              <div>
+                <p class="font-medium">Need help?</p>
+                <p class="t-small">Our support team can check the status of any payment for you.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════ Gaming benefits ═════════ -->
+    <section id="benefits" class="section">
+      <div class="wrap">
+        <div class="section-head reveal mx-auto text-center">
+          <p class="eyebrow">The MY99EXCH experience</p>
+          <h2 class="t-h2">Designed to make gaming <span class="text-gold-grad">effortless</span></h2>
+          <p class="t-lead">Thoughtful details that make every visit easier – from sign-up to support.</p>
+        </div>
+
+        <div data-reveal="zoom" class="reveal glass relative mt-12 overflow-hidden">
+          <div
+            class="pointer-events-none absolute -top-24 left-1/2 h-48 w-2/3 -translate-x-1/2 rounded-full bg-purple/25 blur-3xl"
+            aria-hidden="true"></div>
+          <ol class="journey">
+            <li class="journey-step">
+              <span class="journey-icon"><i data-icon="user-plus"></i></span>
+              <div>
+                <p class="journey-index">01</p>
+                <h3 class="t-h3 mt-1">Easy registration</h3>
+                <p class="t-body mt-1.5 !text-sm">Create your account in a few simple steps and start playing sooner.
+                </p>
+              </div>
+            </li>
+            <li class="journey-step">
+              <span class="journey-icon"><i data-icon="compass"></i></span>
+              <div>
+                <p class="journey-index">02</p>
+                <h3 class="t-h3 mt-1">Clear navigation</h3>
+                <p class="t-body mt-1.5 !text-sm">Find games, payments and help quickly with a clean, simple layout.</p>
+              </div>
+            </li>
+            <li class="journey-step">
+              <span class="journey-icon"><i data-icon="wallet"></i></span>
+              <div>
+                <p class="journey-index">03</p>
+                <h3 class="t-h3 mt-1">Payment information</h3>
+                <p class="t-body mt-1.5 !text-sm">Supported methods and payment help, all in one place.</p>
+              </div>
+            </li>
+            <li class="journey-step">
+              <span class="journey-icon"><i data-icon="smartphone"></i></span>
+              <div>
+                <p class="journey-index">04</p>
+                <h3 class="t-h3 mt-1">Mobile-friendly</h3>
+                <p class="t-body mt-1.5 !text-sm">Play comfortably on your phone, tablet or desktop.</p>
+              </div>
+            </li>
+            <li class="journey-step">
+              <span class="journey-icon"><i data-icon="headset"></i></span>
+              <div>
+                <p class="journey-index">05</p>
+                <h3 class="t-h3 mt-1">Helpful support</h3>
+                <p class="t-body mt-1.5 !text-sm">Friendly help 24/7, whenever you have a question.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════ Player reviews (rendered from REVIEWS in js/main.js) ═════════ -->
+    <section id="reviews" class="section bg-royal">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow">Player reviews</p>
+          <h2 class="t-h2">What our <span class="text-gold-grad">players</span> say</h2>
+        </div>
+
+        <div id="reviewsList" class="mt-12">
+          <!-- Shown until genuine reviews are added -->
+          <div data-reveal="zoom" class="reveal glass mx-auto max-w-3xl px-6 py-12 text-center sm:px-12">
+            <span class="icon-circle mx-auto h-14 w-14"><i data-icon="message-square-heart"></i></span>
+            <div class="mt-5 flex justify-center gap-1 text-gold/50" aria-hidden="true">
+              <i data-icon="star" class="h-4 w-4"></i><i data-icon="star" class="h-4 w-4"></i><i data-icon="star"
+                class="h-4 w-4"></i><i data-icon="star" class="h-4 w-4"></i><i data-icon="star" class="h-4 w-4"></i>
+            </div>
+            <h3 class="t-h3-lg mt-4">Verified reviews <span class="text-gold-grad">coming soon</span></h3>
+            <p class="t-body mx-auto mt-3 max-w-xl">We only publish genuine reviews from real MY99EXCH players. Played
+              with us recently? We'd love to hear about your experience.</p>
+            <a href="#join" data-route="feedback" class="btn btn-secondary mt-8"><i data-icon="pen-line"></i> Share Your
+              Feedback</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════ FAQ ═════════ -->
+    <section id="faq" class="section bg-deep">
+      <div class="wrap grid gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-16">
+        <div data-reveal="left" class="reveal lg:sticky lg:top-28 lg:self-start">
+          <p class="eyebrow">FAQ</p>
+          <h2 class="t-h2 mt-4">Frequently asked <span class="text-gold-grad">questions</span></h2>
+          <p class="t-lead mt-5">Quick answers about accounts, payments, bonuses and support.</p>
+          <div class="card mt-8 flex items-start gap-4 p-5">
+            <span class="icon-badge"><i data-icon="headset"></i></span>
+            <div>
+              <h3 class="font-display font-semibold">Still have a question?</h3>
+              <p class="t-small mt-1">Our support team is available 24/7.</p>
+              <a href="#join" data-route="support" class="btn btn-primary btn-sm mt-4">Contact Support <i
+                  data-icon="arrow-right" class="icon-arrow"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div data-reveal="right" class="reveal space-y-3" data-accordion>
+          <div class="faq-item" id="faq-account">
+            <h3><button type="button" class="faq-trigger" id="faq-account-q" aria-expanded="false"
+                aria-controls="faq-account-a">
+                How do I create an account?
+                <span class="faq-toggle" aria-hidden="true"><i data-icon="plus" class="icon-plus"></i><i
+                    data-icon="minus" class="icon-minus"></i></span>
+              </button></h3>
+            <div class="faq-panel" id="faq-account-a" role="region" aria-labelledby="faq-account-q">
+              <div>
+                <p class="faq-answer">Tap <strong class="font-semibold text-snow">Register Now</strong> and follow the
+                  steps to set up your account. You must be 18 or over to play. If you get stuck at any point, our
+                  support team will guide you through it.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item" id="faq-payments">
+            <h3><button type="button" class="faq-trigger" id="faq-payments-q" aria-expanded="false"
+                aria-controls="faq-payments-a">
+                Which deposit and withdrawal methods are supported?
+                <span class="faq-toggle" aria-hidden="true"><i data-icon="plus" class="icon-plus"></i><i
+                    data-icon="minus" class="icon-minus"></i></span>
+              </button></h3>
+            <div class="faq-panel" id="faq-payments-a" role="region" aria-labelledby="faq-payments-q">
+              <div>
+                <p class="faq-answer">MY99EXCH supports UPI for both deposits and withdrawals. You'll find the current
+                  list of supported methods in the <a href="#payments" class="text-link">Payments &amp; security</a>
+                  section.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item" id="faq-withdrawal">
+            <h3><button type="button" class="faq-trigger" id="faq-withdrawal-q" aria-expanded="false"
+                aria-controls="faq-withdrawal-a">
+                How can I check my withdrawal status?
+                <span class="faq-toggle" aria-hidden="true"><i data-icon="plus" class="icon-plus"></i><i
+                    data-icon="minus" class="icon-minus"></i></span>
+              </button></h3>
+            <div class="faq-panel" id="faq-withdrawal-a" role="region" aria-labelledby="faq-withdrawal-q">
+              <div>
+                <p class="faq-answer">Contact our support team with your registered username and the amount and date of
+                  your withdrawal, and they'll check its latest status for you.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item" id="faq-bonus">
+            <h3><button type="button" class="faq-trigger" id="faq-bonus-q" aria-expanded="false"
+                aria-controls="faq-bonus-a">
+                What are the bonus terms and conditions?
+                <span class="faq-toggle" aria-hidden="true"><i data-icon="plus" class="icon-plus"></i><i
+                    data-icon="minus" class="icon-minus"></i></span>
+              </button></h3>
+            <div class="faq-panel" id="faq-bonus-a" role="region" aria-labelledby="faq-bonus-q">
+              <div>
+                <p class="faq-answer">Each bonus has its own terms – for example eligibility, minimum deposit and
+                  wagering requirements – shown with the offer. Please read them, and our <a href="#" data-legal="terms"
+                    class="text-link">Terms &amp; Conditions</a>, before you claim. If anything is unclear, ask our
+                  support team.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item" id="faq-mobile">
+            <h3><button type="button" class="faq-trigger" id="faq-mobile-q" aria-expanded="false"
+                aria-controls="faq-mobile-a">
+                Is MY99EXCH available on mobile?
+                <span class="faq-toggle" aria-hidden="true"><i data-icon="plus" class="icon-plus"></i><i
+                    data-icon="minus" class="icon-minus"></i></span>
+              </button></h3>
+            <div class="faq-panel" id="faq-mobile-a" role="region" aria-labelledby="faq-mobile-q">
+              <div>
+                <p class="faq-answer">Yes. MY99EXCH works on mobile phones and tablets as well as desktop computers, so
+                  you can play wherever you are.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item" id="faq-support">
+            <h3><button type="button" class="faq-trigger" id="faq-support-q" aria-expanded="false"
+                aria-controls="faq-support-a">
+                How can I contact customer support?
+                <span class="faq-toggle" aria-hidden="true"><i data-icon="plus" class="icon-plus"></i><i
+                    data-icon="minus" class="icon-minus"></i></span>
+              </button></h3>
+            <div class="faq-panel" id="faq-support-a" role="region" aria-labelledby="faq-support-q">
+              <div>
+                <p class="faq-answer">Our support team is available 24/7. Email us at <a
+                    href="mailto:support@my99exch.com" data-contact="email" class="text-link"><span
+                      data-contact-label>support@my99exch.com</span></a><span data-requires="whatsapp"> or message us on
+                    <a href="#" data-contact="whatsapp" class="text-link">WhatsApp</a></span>, and we'll get back to you
+                  as soon as we can.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item" id="faq-responsible">
+            <h3><button type="button" class="faq-trigger" id="faq-responsible-q" aria-expanded="false"
+                aria-controls="faq-responsible-a">
+                Where can I find responsible-gaming information?
+                <span class="faq-toggle" aria-hidden="true"><i data-icon="plus" class="icon-plus"></i><i
+                    data-icon="minus" class="icon-minus"></i></span>
+              </button></h3>
+            <div class="faq-panel" id="faq-responsible-a" role="region" aria-labelledby="faq-responsible-q">
+              <div>
+                <p class="faq-answer">MY99EXCH is for adults aged 18 and over. Set a budget before you play, take
+                  regular breaks and never chase losses. If gaming stops being fun, please contact our support team for
+                  help.<span data-requires="legal.responsibleGaming"> Read our full <a href="#"
+                      data-legal="responsibleGaming" class="text-link">Responsible Gaming policy</a>.</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════ Call to action ═════════ -->
+    <section id="join" class="section">
+      <div class="wrap">
+        <div data-reveal="zoom" class="cta-panel reveal">
+          <span class="cta-glow" aria-hidden="true"></span>
+
+          <!-- Artwork on both sides (desktop) -->
+          <!-- <img src="images/banner/bn1.webp" alt="" width="600" height="600" loading="lazy" class="cta-art cta-art-left" data-parallax="-0.08" aria-hidden="true">
+          <img src="images/banner/bn2.webp" alt="" width="600" height="600" loading="lazy" class="cta-art cta-art-right" data-parallax="0.08" aria-hidden="true"> -->
+
+          <div class="relative z-[1] mx-auto flex max-w-2xl flex-col items-center px-6 py-8 text-center sm:px-10 sm:py-10 md:py-12">
+            <span class="tag"><i data-icon="sparkles"></i> Join in minutes</span>
+            <h2 class="t-h2 mt-4 sm:mt-5">Ready to play? <span class="text-gold-grad text-glow">Join MY99EXCH today</span></h2>
+            <p class="t-lead mx-auto mt-3 max-w-xl sm:mt-4">Create your account, explore the games and enjoy convenient UPI payments – with support whenever you need it.</p>
+            <div class="mt-6 flex w-full flex-col items-center justify-center gap-3 sm:mt-7 sm:w-auto sm:flex-row sm:gap-4">
+              <a href="#join" data-route="register" class="btn btn-primary btn-lg btn-shine w-full sm:w-auto">Register Now <i data-icon="arrow-right" class="icon-arrow"></i></a>
+              <a href="#join" data-route="support" class="btn btn-ghost btn-lg w-full sm:w-auto"><i data-icon="headset"></i> Talk to Support</a>
+            </div>
+            <ul class="cta-trust mt-6 sm:mt-7" aria-label="Why join">
+              <li><i data-icon="shield-check"></i> Secure play</li>
+              <li><i data-icon="indian-rupee"></i> UPI payments</li>
+              <li><i data-icon="headset"></i> 24/7 support</li>
+            </ul>
+            <p class="mt-4 flex items-center justify-center gap-3 text-xs text-muted sm:mt-5"><span class="age-badge !h-8 !w-8 !border !text-[0.65rem]">18+</span> For adults only. Please play responsibly.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ═════════ Footer ═════════ -->
+  <footer class="site-footer">
+    <div class="divider-gold" aria-hidden="true"></div>
+    <div
+      class="pointer-events-none absolute inset-x-0 top-0 h-56 bg-[radial-gradient(50%_100%_at_50%_0%,rgba(139,43,255,0.16),transparent)]"
+      aria-hidden="true"></div>
+
+    <div
+      class="wrap relative grid grid-cols-2 gap-x-6 gap-y-10 pb-12 pt-16 sm:gap-10 lg:grid-cols-[1.5fr_1fr_1fr_1.15fr_1.3fr] lg:gap-8">
+      <!-- Brand -->
+      <div class="col-span-2 lg:col-span-1">
+        <a href="#home" class="inline-block" aria-label="MY99EXCH home">
+          <img src="images/my99exch-logo-400.webp" alt="MY99EXCH" width="400" height="80" loading="lazy"
+            class="h-10 w-auto">
+        </a>
+        <p class="mt-4 font-display text-sm font-semibold">Play smart, <span class="text-gold">win together.</span></p>
+        <p class="t-body mt-2 max-w-sm !text-sm">Slots, live casino, sports betting and Aviator with convenient UPI
+          payments and 24/7 support.</p>
+        <div id="socialLinks" class="mt-5 flex flex-wrap gap-2.5">
+          <a href="#" data-social="facebook" aria-label="MY99EXCH on Facebook" class="social-btn"><i
+              data-brand="facebook"></i></a>
+          <a href="#" data-social="x" aria-label="MY99EXCH on X" class="social-btn"><i data-brand="x-twitter"></i></a>
+          <a href="#" data-social="instagram" aria-label="MY99EXCH on Instagram" class="social-btn"><i
+              data-brand="instagram"></i></a>
+          <a href="#" data-social="youtube" aria-label="MY99EXCH on YouTube" class="social-btn"><i
+              data-brand="youtube"></i></a>
+          <a href="#" data-social="telegram" aria-label="MY99EXCH on Telegram" class="social-btn"><i
+              data-brand="telegram"></i></a>
+        </div>
+        <div class="mt-6 flex max-w-sm items-center gap-3">
+          <span class="age-badge">18+</span>
+          <p class="text-xs leading-relaxed text-muted">Adults only. Online gaming involves financial risk and can be
+            addictive – please play responsibly.</p>
+        </div>
+      </div>
+
+      <!-- Quick links -->
+      <nav aria-label="Quick links">
+        <h2 class="footer-heading">Quick Links</h2>
+        <ul class="mt-4">
+          <li><a href="#home" class="footer-link">Home</a></li>
+          <li><a href="#about" class="footer-link">About Us</a></li>
+          <li><a href="#games" class="footer-link">Games</a></li>
+          <li><a href="#promotions" class="footer-link">Promotions</a></li>
+          <li><a href="#payments" class="footer-link">Payments</a></li>
+          <li><a href="#" data-route="blog" class="footer-link">Blog</a></li>
+          <li><a href="#faq" class="footer-link">FAQ</a></li>
+        </ul>
+      </nav>
+
+      <!-- Games -->
+      <nav aria-label="Games">
+        <h2 class="footer-heading">Games</h2>
+        <ul class="mt-4">
+          <li><a href="#slots" class="footer-link">Slots</a></li>
+          <li><a href="#sports" class="footer-link">Sports Betting</a></li>
+          <li><a href="#live-games" class="footer-link">Live Casino</a></li>
+          <li><a href="#table-games" class="footer-link">Casino Games</a></li>
+          <li><a href="#aviator" class="footer-link">Aviator</a></li>
+        </ul>
+      </nav>
+
+      <!-- Legal & support (legal pages appear once their URLs are set in js/main.js) -->
+      <nav aria-label="Legal and support" class="col-span-2 sm:col-span-1">
+        <h2 class="footer-heading">Legal &amp; Support</h2>
+        <ul class="mt-4">
+          <li><a href="#" data-legal="terms" class="footer-link">Terms &amp; Conditions</a></li>
+          <li><a href="#" data-legal="privacy" class="footer-link">Privacy Policy</a></li>
+          <li><a href="#faq-responsible" data-legal="responsibleGaming" data-fallback="#faq-responsible"
+              class="footer-link">Responsible Gaming</a></li>
+          <li><a href="#" data-legal="aml" class="footer-link">AML Policy</a></li>
+          <li><a href="#" data-legal="kyc" class="footer-link">KYC Verification</a></li>
+          <li><a href="#" data-legal="disputes" class="footer-link">Dispute Resolution</a></li>
+          <li><a href="#faq" class="footer-link">FAQs</a></li>
+          <li><a href="#join" data-route="support" class="footer-link">Customer Support</a></li>
+        </ul>
+      </nav>
+
+      <!-- Contact -->
+      <div id="contact" class="col-span-2 sm:col-span-1">
+        <h2 class="footer-heading">Contact Us</h2>
+        <ul class="mt-4">
+          <li><a href="mailto:support@my99exch.com" data-contact="email" class="footer-link"><i
+                data-icon="mail"></i><span data-contact-label>support@my99exch.com</span></a></li>
+          <li><a href="tel:+919876543210" data-contact="phone" class="footer-link"><i data-icon="phone"></i><span
+                data-contact-label>+91 98765 43210</span></a></li>
+          <li><a href="#" data-contact="whatsapp" class="footer-link"><i data-icon="message-circle"></i>Chat on
+              WhatsApp</a></li>
+        </ul>
+        <a href="#join" data-route="support" class="btn btn-secondary mt-5 w-full"><i data-icon="headset"></i> Contact
+          Support</a>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="border-t border-line/70">
+      <div class="wrap flex flex-col items-center gap-3 py-6 text-center lg:flex-row lg:justify-between lg:text-left">
+        <p class="text-xs text-muted">© <span id="footerYear">2026</span> <span
+            class="font-semibold text-snow">MY99EXCH</span>. All rights reserved.</p>
+        <ul class="flex flex-wrap items-center justify-center gap-x-5 gap-y-1">
+          <li><a href="#faq-responsible" data-legal="responsibleGaming" data-fallback="#faq-responsible"
+              class="footer-link !text-xs">Responsible Gaming</a></li>
+          <li><a href="#" data-legal="privacy" class="footer-link !text-xs">Privacy Policy</a></li>
+          <li><a href="#" data-legal="terms" class="footer-link !text-xs">Terms &amp; Conditions</a></li>
+          <li class="flex items-center gap-2 text-xs text-muted"><span
+              class="age-badge !h-7 !w-7 !border !text-[0.6rem]">18+</span> Play responsibly</li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp button (appears once a WhatsApp number is set in js/main.js) -->
+  <a href="#" data-contact="whatsapp" aria-label="Chat with us on WhatsApp"
+    class="fixed bottom-5 right-5 z-40 grid h-14 w-14 place-items-center rounded-full bg-whatsapp text-white shadow-[0_10px_30px_-6px_rgba(37,211,102,0.6)] transition duration-200 hover:-translate-y-0.5">
+    <i data-brand="whatsapp" class="h-7 w-7"></i>
+  </a>
+
+  <!-- Back to top (appears after scrolling down) -->
+  <a href="#home" id="toTop" class="to-top" aria-label="Back to top"><i data-icon="arrow-up"></i></a>
+
+  <script src="js/icons.js" defer></script>
+  <script src="js/art.js" defer></script>
+  <script src="js/vendor/lenis.min.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+
+</html>

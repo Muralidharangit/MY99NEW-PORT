@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A0D55"/><stop offset="1" stop-color="#08031D"/></linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE45C"/><stop offset=".5" stop-color="#FFD21C"/><stop offset="1" stop-color="#FFB000"/></linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#bg)"/>
+  <rect x="1" y="1" width="62" height="62" rx="13" fill="none" stroke="#8B2BFF" stroke-opacity=".6" stroke-width="2"/>
+  <!-- Lucide "crown" (ISC licence), filled in brand gold -->
+  <g transform="translate(10 9) scale(1.8333)" fill="url(#gold)" stroke="url(#gold)" stroke-width="1.2" stroke-linejoin="round">
+    <path d="M11.562 3.266a.5.5 0 0 1 .876 0L15.39 8.87a1 1 0 0 0 1.516.294L21.183 5.5a.5.5 0 0 1 .798.519l-2.834 10.246a1 1 0 0 1-.956.734H5.81a1 1 0 0 1-.957-.734L2.02 6.02a.5.5 0 0 1 .798-.519l4.276 3.664a1 1 0 0 0 1.516-.294z"/>
+    <path d="M5 21h14" fill="none" stroke-width="2" stroke-linecap="round"/>
+  </g>
+</svg>
