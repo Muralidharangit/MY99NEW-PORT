@@ -33,7 +33,7 @@
   <link rel="stylesheet" href="css/tailwind.css">
 </head>
 
-<body>
+<body data-page="home">
   <a href="#main" class="skip-link">Skip to content</a>
   <div class="ambient" aria-hidden="true"></div>
 
@@ -42,19 +42,17 @@
 
   <header id="navbar" class="site-header">
     <nav class="wrap flex h-[72px] items-center justify-between gap-4" aria-label="Main navigation">
-      <a href="#home" class="shrink-0 py-2" aria-label="MY99EXCH home">
+      <a href="index.html" class="shrink-0 py-2" aria-label="MY99EXCH home">
         <img src="images/my99exch-logo-400.webp" alt="MY99EXCH" width="400" height="80" class="h-7 w-auto sm:h-9">
       </a>
 
-      <ul class="hidden items-center gap-6 xl:flex">
-        <li><a href="#home" class="nav-link active" data-nav="home" aria-current="true">Home</a></li>
-        <li><a href="#about" class="nav-link" data-nav="about">About Us</a></li>
-        <li><a href="#games" class="nav-link" data-nav="games">Games</a></li>
-        <li><a href="#live-casino" class="nav-link" data-nav="live-casino">Live Casino</a></li>
-        <li><a href="#sports" class="nav-link" data-nav="sports">Sports</a></li>
-        <li><a href="#promotions" class="nav-link" data-nav="promotions">Promotions</a></li>
-        <li><a href="#" class="nav-link" data-route="blog">Blog</a></li>
-        <li><a href="#contact" class="nav-link" data-nav="contact">Contact</a></li>
+      <ul class="hidden items-center gap-7 xl:flex">
+        <li><a href="index.html" class="nav-link" data-page-link="home">Home</a></li>
+        <li><a href="about.html" class="nav-link" data-page-link="about">About Us</a></li>
+        <li><a href="services.html" class="nav-link" data-page-link="services">Services</a></li>
+        <li><a href="games.html" class="nav-link" data-page-link="games">Games</a></li>
+        <li><a href="updates.html" class="nav-link" data-page-link="updates">Updates</a></li>
+        <li><a href="contact.html" class="nav-link" data-page-link="contact">Contact</a></li>
       </ul>
 
       <div class="flex items-center gap-1.5 sm:gap-2">
@@ -74,17 +72,12 @@
     <div id="mobileMenu" class="xl:hidden">
       <div data-lenis-prevent>
         <ul class="wrap pb-6 pt-1">
-          <li><a href="#home" class="mobile-link active" data-nav="home">Home <i data-icon="chevron-right"></i></a></li>
-          <li><a href="#about" class="mobile-link" data-nav="about">About Us <i data-icon="chevron-right"></i></a></li>
-          <li><a href="#games" class="mobile-link" data-nav="games">Games <i data-icon="chevron-right"></i></a></li>
-          <li><a href="#live-casino" class="mobile-link" data-nav="live-casino">Live Casino <i
-                data-icon="chevron-right"></i></a></li>
-          <li><a href="#sports" class="mobile-link" data-nav="sports">Sports <i data-icon="chevron-right"></i></a></li>
-          <li><a href="#promotions" class="mobile-link" data-nav="promotions">Promotions <i
-                data-icon="chevron-right"></i></a></li>
-          <li><a href="#" class="mobile-link" data-route="blog">Blog <i data-icon="chevron-right"></i></a></li>
-          <li><a href="#contact" class="mobile-link" data-nav="contact">Contact <i data-icon="chevron-right"></i></a>
-          </li>
+          <li><a href="index.html" class="mobile-link" data-page-link="home">Home <i data-icon="chevron-right"></i></a></li>
+          <li><a href="about.html" class="mobile-link" data-page-link="about">About Us <i data-icon="chevron-right"></i></a></li>
+          <li><a href="services.html" class="mobile-link" data-page-link="services">Services <i data-icon="chevron-right"></i></a></li>
+          <li><a href="games.html" class="mobile-link" data-page-link="games">Games <i data-icon="chevron-right"></i></a></li>
+          <li><a href="updates.html" class="mobile-link" data-page-link="updates">Updates <i data-icon="chevron-right"></i></a></li>
+          <li><a href="contact.html" class="mobile-link" data-page-link="contact">Contact <i data-icon="chevron-right"></i></a></li>
           <li class="flex gap-3 pt-5">
             <a href="#join" data-route="login" class="btn btn-ghost flex-1">Login</a>
             <a href="#join" data-route="register" class="btn btn-primary flex-1">Register Now</a>
@@ -859,7 +852,7 @@
     <div class="wrap relative grid grid-cols-2 gap-x-6 gap-y-12 pb-12 pt-14 md:pt-16 lg:grid-cols-[1.6fr_1fr_1fr_1.2fr] lg:gap-10">
       <!-- Brand -->
       <div class="col-span-2 lg:col-span-1">
-        <a href="#home" class="inline-block" aria-label="MY99EXCH home">
+        <a href="index.html" class="inline-block" aria-label="MY99EXCH home">
           <img src="images/my99exch-logo-400.webp" alt="MY99EXCH" width="400" height="80" loading="lazy" class="h-11 w-auto">
         </a>
         <p class="mt-5 font-display text-lg font-semibold">Play smart, <span class="text-gold-grad">win together.</span></p>
@@ -885,13 +878,15 @@
       <nav aria-label="Quick links">
         <h2 class="footer-heading">Quick Links</h2>
         <ul class="footer-list">
-          <li><a href="#home" class="footer-link"><i data-icon="chevron-right"></i>Home</a></li>
-          <li><a href="#about" class="footer-link"><i data-icon="chevron-right"></i>About Us</a></li>
-          <li><a href="#games" class="footer-link"><i data-icon="chevron-right"></i>Games</a></li>
+          <li><a href="index.html" class="footer-link"><i data-icon="chevron-right"></i>Home</a></li>
+          <li><a href="about.html" class="footer-link"><i data-icon="chevron-right"></i>About Us</a></li>
+          <li><a href="services.html" class="footer-link"><i data-icon="chevron-right"></i>Services</a></li>
+          <li><a href="games.html" class="footer-link"><i data-icon="chevron-right"></i>Games</a></li>
+          <li><a href="updates.html" class="footer-link"><i data-icon="chevron-right"></i>Updates</a></li>
           <li><a href="#promotions" class="footer-link"><i data-icon="chevron-right"></i>Promotions</a></li>
           <li><a href="#payments" class="footer-link"><i data-icon="chevron-right"></i>Payments</a></li>
-          <li><a href="#" data-route="blog" class="footer-link"><i data-icon="chevron-right"></i>Blog</a></li>
           <li><a href="#faq" class="footer-link"><i data-icon="chevron-right"></i>FAQ</a></li>
+          <li><a href="contact.html" class="footer-link"><i data-icon="chevron-right"></i>Contact Us</a></li>
         </ul>
       </nav>
 
@@ -899,11 +894,11 @@
       <nav aria-label="Games">
         <h2 class="footer-heading">Games</h2>
         <ul class="footer-list">
-          <li><a href="#slots" class="footer-link"><i data-icon="chevron-right"></i>Slots</a></li>
-          <li><a href="#sports" class="footer-link"><i data-icon="chevron-right"></i>Sports Betting</a></li>
-          <li><a href="#live-games" class="footer-link"><i data-icon="chevron-right"></i>Live Casino</a></li>
-          <li><a href="#table-games" class="footer-link"><i data-icon="chevron-right"></i>Casino Games</a></li>
-          <li><a href="#aviator" class="footer-link"><i data-icon="chevron-right"></i>Aviator</a></li>
+          <li><a href="games.html#slots" class="footer-link"><i data-icon="chevron-right"></i>Slots</a></li>
+          <li><a href="games.html#sports" class="footer-link"><i data-icon="chevron-right"></i>Sports Betting</a></li>
+          <li><a href="games.html#live-games" class="footer-link"><i data-icon="chevron-right"></i>Live Casino</a></li>
+          <li><a href="games.html#table-games" class="footer-link"><i data-icon="chevron-right"></i>Casino Games</a></li>
+          <li><a href="games.html#aviator" class="footer-link"><i data-icon="chevron-right"></i>Aviator</a></li>
         </ul>
       </nav>
 
@@ -954,11 +949,12 @@
   </a>
 
   <!-- Back to top (appears after scrolling down) -->
-  <a href="#home" id="toTop" class="to-top" aria-label="Back to top"><i data-icon="arrow-up"></i></a>
+  <a href="#top" id="toTop" class="to-top" aria-label="Back to top"><i data-icon="arrow-up"></i></a>
 
   <script src="js/icons.js" defer></script>
   <script src="js/art.js" defer></script>
   <script src="js/vendor/lenis.min.js" defer></script>
+  <script src="js/posts-data.js" defer></script>
   <script src="js/main.js" defer></script>
 </body>
 

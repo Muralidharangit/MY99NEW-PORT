@@ -1,0 +1,122 @@
+<!--
+title: Contact Us – MY99EXCH | 24/7 Customer Support
+description: Contact MY99EXCH support 24/7 by email, phone or the contact form – help with accounts, UPI payments, bonuses and games. 18+ only.
+page: contact
+-->
+<main id="main">
+
+    <!-- ═════════ Page hero ═════════ -->
+    <section class="page-hero has-watermark">
+      <div class="hero-lighting" aria-hidden="true">
+        <span class="hero-beam right-0 top-[16%] w-[55%]"></span>
+        <span class="hero-beam right-0 top-[28%] w-[38%] opacity-60"></span>
+      </div>
+      <span class="section-watermark wm-top-right" data-drift="-0.12" aria-hidden="true">MY99EXCH</span>
+
+      <div class="wrap">
+        <div data-reveal="zoom" class="reveal mx-auto max-w-3xl text-center">
+          <nav class="breadcrumb justify-center" aria-label="Breadcrumb">
+            <a href="index.html">Home</a><i data-icon="chevron-right"></i><span aria-current="page">Contact</span>
+          </nav>
+          <span class="tag mt-6"><i data-icon="headset"></i> Support 24/7</span>
+          <h1 class="t-page mt-5">We're here to <span class="text-gold-grad text-glow">help, any time</span></h1>
+          <p class="t-lead mx-auto mt-6 max-w-[38rem]">Questions about your account, UPI payments, bonuses or games? Send us a message and our team will get back to you.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════ Contact details + form ═════════ -->
+    <section id="message" class="section">
+      <div class="wrap grid gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-14">
+
+        <!-- Ways to reach us -->
+        <div data-reveal="left" class="reveal">
+          <p class="eyebrow">Get in touch</p>
+          <h2 class="t-h2 mt-4">Talk to a <span class="text-gold-grad">real person</span></h2>
+          <p class="t-lead mt-5">Pick whichever way suits you – every message reaches the same friendly support team.</p>
+
+          <ul class="mt-8 grid gap-3">
+            <li><a href="mailto:support@my99exch.com" data-contact="email" class="contact-tile">
+              <span class="icon-badge"><i data-icon="mail"></i></span>
+              <span class="min-w-0"><span class="contact-tile-label">Email us</span><span class="contact-tile-value" data-contact-label>support@my99exch.com</span></span>
+            </a></li>
+            <li><a href="tel:+919876543210" data-contact="phone" class="contact-tile">
+              <span class="icon-badge"><i data-icon="phone"></i></span>
+              <span class="min-w-0"><span class="contact-tile-label">Call us</span><span class="contact-tile-value" data-contact-label>+91 98765 43210</span></span>
+            </a></li>
+            <li><a href="#" data-contact="whatsapp" class="contact-tile">
+              <span class="icon-badge"><i data-icon="message-circle"></i></span>
+              <span class="min-w-0"><span class="contact-tile-label">Live chat</span><span class="contact-tile-value">Chat on WhatsApp</span></span>
+            </a></li>
+          </ul>
+
+          <div class="card mt-6 flex items-start gap-4 p-5">
+            <span class="icon-badge"><i data-icon="circle-help"></i></span>
+            <div>
+              <h3 class="font-display font-semibold">Looking for a quick answer?</h3>
+              <p class="t-small mt-1">Accounts, payments, bonuses and withdrawals are covered in our FAQ.</p>
+              <a href="index.html#faq" class="link-arrow">Read the FAQ <i data-icon="arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-rg mt-6">
+            <span class="age-badge">18+</span>
+            <p class="text-sm leading-relaxed text-muted"><strong class="font-semibold text-snow">Never share</strong> your password, OTP or UPI PIN – not even with someone who says they're from support.</p>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div data-reveal="right" class="reveal glass p-6 sm:p-8 lg:p-10">
+          <h2 class="t-h3-lg">Send us a <span class="text-gold-grad">message</span></h2>
+          <p class="t-small mt-2">Fields marked <span class="text-gold">*</span> are required.</p>
+
+          <form id="contactForm" class="mt-7" novalidate>
+            <div class="form-grid">
+              <div>
+                <label for="cf-name" class="field-label">Your name <span>*</span></label>
+                <input id="cf-name" name="name" type="text" class="input" autocomplete="name" placeholder="e.g. Rahul Sharma" required aria-describedby="cf-name-error">
+                <p id="cf-name-error" class="field-error" hidden></p>
+              </div>
+              <div>
+                <label for="cf-email" class="field-label">Email address <span>*</span></label>
+                <input id="cf-email" name="email" type="email" class="input" autocomplete="email" inputmode="email" placeholder="you@example.com" required aria-describedby="cf-email-error">
+                <p id="cf-email-error" class="field-error" hidden></p>
+              </div>
+              <div class="span-2">
+                <label for="cf-topic" class="field-label">Topic <span>*</span></label>
+                <select id="cf-topic" name="topic" class="input" required aria-describedby="cf-topic-error">
+                  <option value="">Choose a topic…</option>
+                  <option>Account &amp; registration</option>
+                  <option>Deposits &amp; withdrawals</option>
+                  <option>Bonuses &amp; offers</option>
+                  <option>Games</option>
+                  <option>Responsible gaming</option>
+                  <option>Something else</option>
+                </select>
+                <p id="cf-topic-error" class="field-error" hidden></p>
+              </div>
+              <div class="span-2">
+                <label for="cf-message" class="field-label">Message <span>*</span></label>
+                <textarea id="cf-message" name="message" class="input" rows="6" placeholder="How can we help? For payment questions, include the date and amount (never your PIN or OTP)." required aria-describedby="cf-message-error"></textarea>
+                <p id="cf-message-error" class="field-error" hidden></p>
+              </div>
+              <!-- Honeypot: hidden from people, filled in by bots -->
+              <div class="hp-field" aria-hidden="true">
+                <label for="cf-company">Company</label>
+                <input id="cf-company" name="company" type="text" tabindex="-1" autocomplete="off">
+              </div>
+            </div>
+
+            <div data-form-status class="mt-6" role="status" aria-live="polite" hidden></div>
+
+            <div class="mt-7 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <p class="t-small max-w-xs">We reply as soon as we can – our team is available 24/7.</p>
+              <button type="submit" class="btn btn-primary btn-lg w-full sm:w-auto">Send Message <i data-icon="arrow-right" class="icon-arrow"></i></button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- @include cta -->
+  </main>

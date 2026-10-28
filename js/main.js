@@ -9,14 +9,15 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').match
    to a dead end:
    - "Register" and "Play" buttons go to these URLs. Until they're set, they open
      a message to support (WhatsApp if set, otherwise email).
-   - Login, blog, "View all games", social and legal links stay hidden until
-     they have a URL.
+   - Login, social and legal links stay hidden until they have a URL.
+   - "View all games" and blog links fall back to games.html / updates.html.
    - The WhatsApp button and chat links appear once `whatsapp` is set. */
 const SITE = {
   registerUrl: '',
   loginUrl: '',
   gamesUrl: '',            // games lobby – used by "Play now" and "View all games"
   blogUrl: '',
+  contactEndpoint: '',     // optional form backend (POST JSON); without it the contact form opens email/WhatsApp
 
   email: 'support@my99exch.com',
   phone: '+91 98765 43210',
@@ -60,6 +61,10 @@ const REVIEWS = [
   { name: 'Amit Patel',   role: 'Aviator Player',    rating: 5, text: 'Easy to use, secure and reliable. I love playing here!' },
 ];
 
+// Blog articles come from js/posts-data.js (POSTS), generated from src/posts/ by
+// `npm run build:pages`. To add an article, add a file there and rebuild.
+const BLOG_POSTS = typeof POSTS !== 'undefined' ? POSTS : [];
+
 /* ---------- Helpers ---------- */
 const escapeHtml = value => String(value).replace(/[&<>"']/g, c => (
   { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
@@ -67,10 +72,10 @@ const escapeHtml = value => String(value).replace(/[&<>"']/g, c => (
 const initials = name => name.split(/\s+/).map(w => w[0]).join('').slice(0, 2).toUpperCase();
 const setting = path => path.split('.').reduce((obj, key) => obj?.[key], SITE);
 const isWebUrl = url => /^https?:\/\//i.test(url);
+const slug = value => String(value).toLowerCase().replace(/[^a-z0-9]+/g, '-');
 
-/* ---------- Render: games carousel ---------- */
-document.getElementById('gamesGrid').innerHTML = GAMES.map((g, i) => `
-  <li id="${g.id}" role="group" aria-roledescription="slide" aria-label="${i + 1} of ${GAMES.length}: ${escapeHtml(g.title)}">
+/* ---------- Game cards (home carousel + games page catalogue) ---------- */
+const gameCard = g => `
     <article class="game-card group">
       <div class="game-media">
         <div class="art fallback-art" data-illustration="${g.art}"></div>
@@ -91,11 +96,94 @@ document.getElementById('gamesGrid').innerHTML = GAMES.map((g, i) => `
         <p class="game-desc">${escapeHtml(g.desc)}</p>
         <a href="#join" data-route="play" class="btn btn-primary btn-sm game-play stretched">Play now<span class="sr-only">: ${escapeHtml(g.title)}</span> <i data-icon="arrow-right" class="icon-arrow"></i></a>
       </div>
-    </article>
+    </article>`;
+
+const gamesCarousel = document.getElementById('gamesGrid');
+if (gamesCarousel) {
+  gamesCarousel.innerHTML = GAMES.map((g, i) => `
+  <li id="${g.id}" role="group" aria-roledescription="slide" aria-label="${i + 1} of ${GAMES.length}: ${escapeHtml(g.title)}">${gameCard(g)}
   </li>`).join('');
+}
+
+const gamesCatalog = document.getElementById('gamesCatalog');
+if (gamesCatalog) {
+  gamesCatalog.innerHTML = GAMES.map(g => `
+  <li id="${g.id}" class="reveal" data-cat="${slug(g.cat)}">${gameCard(g)}
+  </li>`).join('');
+}
+
+/* ---------- Blog cards: Updates page (featured + grid) and "Keep reading" lists ---------- */
+const formatDate = d => new Date(`${d}T00:00:00Z`).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
+const blogCard = (p, featured = false) => `
+      <article class="blog-card${featured ? ' is-featured' : ''}">
+        <div class="blog-media">
+          <img src="${escapeHtml(p.image)}" alt="" loading="${featured ? 'eager' : 'lazy'}">
+          <span class="post-cat blog-badge"><i data-icon="${escapeHtml(p.icon)}"></i> ${escapeHtml(p.category)}</span>
+        </div>
+        <div class="blog-body">
+          <div class="post-meta">
+            <span>MY99EXCH Team</span><span class="post-dot" aria-hidden="true"></span><span>${p.readTime} min read</span>
+            ${p.date ? `<span class="post-dot" aria-hidden="true"></span><time datetime="${escapeHtml(p.date)}">${formatDate(p.date)}</time>` : ''}
+          </div>
+          <h3 class="blog-title"><a href="${escapeHtml(p.url)}" class="stretched">${p.title}</a></h3>
+          <p class="post-excerpt">${escapeHtml(p.excerpt)}</p>
+          <span class="link-arrow" aria-hidden="true">Read article <i data-icon="arrow-right"></i></span>
+        </div>
+      </article>`;
+
+const updatesList = document.getElementById('updatesList');
+if (updatesList) {
+  updatesList.innerHTML = BLOG_POSTS.map((p, i) => `
+    <li class="reveal${i === 0 ? ' is-featured-item' : ''}" data-cat="${slug(p.category)}">${blogCard(p, i === 0)}
+    </li>`).join('');
+  const empty = document.getElementById('updatesEmpty');
+  if (empty) empty.hidden = BLOG_POSTS.length > 0;
+}
+
+document.querySelectorAll('[data-related]').forEach(list => {
+  const current = BLOG_POSTS.find(p => p.slug === list.dataset.related);
+  const others = BLOG_POSTS.filter(p => p !== current);
+  // Same category first, then the rest
+  const related = [...others.filter(p => p.category === current?.category), ...others.filter(p => p.category !== current?.category)].slice(0, 3);
+  list.innerHTML = related.map(p => `<li class="reveal">${blogCard(p)}</li>`).join('');
+  if (!related.length) list.closest('section').hidden = true;
+});
+
+/* ---------- Filter chips: [data-filter-bar] filters the [data-cat] items of its list ---------- */
+document.querySelectorAll('[data-filter-bar]').forEach(bar => {
+  const list = document.getElementById(bar.dataset.filterBar);
+  if (!list) return;
+  const items = [...list.querySelectorAll('[data-cat]')];
+  const cats = [...new Map(items.map(el => [el.dataset.cat, el.querySelector('.game-cat, .post-cat')?.textContent.trim()])).entries()];
+  bar.innerHTML = [['all', 'All'], ...cats].map(([value, label], i) => `
+    <button type="button" class="chip-link${i === 0 ? ' is-active' : ''}" data-filter="${value}" aria-pressed="${i === 0}">
+      ${escapeHtml(label)} <span class="chip-count">${value === 'all' ? items.length : items.filter(el => el.dataset.cat === value).length}</span>
+    </button>`).join('');
+
+  bar.addEventListener('click', e => {
+    const btn = e.target.closest('[data-filter]');
+    if (!btn) return;
+    bar.querySelectorAll('[data-filter]').forEach(b => {
+      b.classList.toggle('is-active', b === btn);
+      b.setAttribute('aria-pressed', String(b === btn));
+    });
+    const value = btn.dataset.filter;
+    items.forEach(el => {
+      const show = value === 'all' || el.dataset.cat === value;
+      el.classList.remove('reveal', 'visible');
+      el.hidden = !show;
+      if (show && !reduceMotion) {
+        el.classList.remove('is-entering');
+        void el.offsetWidth; // restart the entrance animation
+        el.classList.add('is-entering');
+      }
+    });
+  });
+});
 
 /* ---------- Render: reviews carousel (keeps the empty state when there are none) ---------- */
-if (REVIEWS.length) {
+const reviewsList = document.getElementById('reviewsList');
+if (REVIEWS.length && reviewsList) {
   const cards = REVIEWS.map((r, i) => `
     <figure class="card review-card" role="group" aria-roledescription="slide" aria-label="${i + 1} of ${REVIEWS.length}">
       <div class="flex items-center justify-between">
@@ -114,7 +202,7 @@ if (REVIEWS.length) {
       </figcaption>
     </figure>`).join('');
 
-  document.getElementById('reviewsList').innerHTML = `
+  reviewsList.innerHTML = `
     <div class="slider carousel reveal" data-carousel="review" aria-roledescription="carousel" aria-label="Player reviews">
       <div class="carousel-track" data-carousel-track tabindex="0" aria-live="off">${cards}</div>
     </div>
@@ -169,9 +257,9 @@ const ROUTES = {
   register: () => SITE.registerUrl || supportUrl('I would like to create a MY99EXCH account'),
   login: () => SITE.loginUrl,
   play: () => SITE.gamesUrl || ROUTES.register(),
-  lobby: () => SITE.gamesUrl || '#games',
-  games: () => SITE.gamesUrl,
-  blog: () => SITE.blogUrl,
+  lobby: () => SITE.gamesUrl || (document.getElementById('games') ? '#games' : 'games.html'),
+  games: () => SITE.gamesUrl || 'games.html',
+  blog: () => SITE.blogUrl || 'updates.html',
   support: () => supportUrl(),
   feedback: () => supportUrl('My MY99EXCH review'),
 };
@@ -565,6 +653,12 @@ document.addEventListener('click', e => {
   if (!link || e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey) return;
   const id = link.getAttribute('href').slice(1);
   if (!id) return;
+  if (id === 'top') {
+    e.preventDefault();
+    scrollToTarget(0);
+    history.replaceState(null, '', location.pathname + location.search);
+    return;
+  }
   const target = document.getElementById(id);
   if (!target) return;
   e.preventDefault();
@@ -640,20 +734,12 @@ else window.addEventListener('scroll', requestScrollFrame, { passive: true });
 window.addEventListener('resize', requestScrollFrame, { passive: true });
 onScroll();
 
-/* ---------- Active nav link on scroll ---------- */
-const navLinks = document.querySelectorAll('[data-nav]');
-const sectionObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    navLinks.forEach(link => {
-      const active = link.dataset.nav === entry.target.id;
-      link.classList.toggle('active', active);
-      if (active) link.setAttribute('aria-current', 'true');
-      else link.removeAttribute('aria-current');
-    });
-  });
-}, { rootMargin: '-45% 0px -50% 0px' });
-document.querySelectorAll('main section[id]').forEach(s => sectionObserver.observe(s));
+/* ---------- Active nav link: the page named in <body data-page> ---------- */
+document.querySelectorAll('[data-page-link]').forEach(link => {
+  const active = link.dataset.pageLink === document.body.dataset.page;
+  link.classList.toggle('active', active);
+  if (active) link.setAttribute('aria-current', 'page');
+});
 
 /* ---------- Scroll reveal ----------
    Elements fade in as they enter the viewport. data-reveal="left|right|zoom"
@@ -710,6 +796,136 @@ if (counters.length && !reduceMotion) {
     });
   }, { threshold: 0.4 });
   counters.forEach(el => countObserver.observe(el));
+}
+
+/* ---------- Article share buttons ---------- */
+document.querySelectorAll('[data-share="whatsapp"]').forEach(a => {
+  a.href = `https://wa.me/?text=${encodeURIComponent(`${document.title}\n${location.href}`)}`;
+});
+document.querySelectorAll('[data-share="copy"]').forEach(btn => {
+  const label = btn.querySelector('[data-share-label]');
+  btn.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(location.href);
+      label.textContent = 'Link copied!';
+    } catch {
+      window.prompt('Copy this link:', location.href);
+    }
+    setTimeout(() => { label.textContent = 'Copy link'; }, 2200);
+  });
+});
+
+/* ---------- Article contents: highlight the section being read ---------- */
+const tocLinks = [...document.querySelectorAll('[data-toc-link]')];
+if (tocLinks.length) {
+  const tocObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      tocLinks.forEach(link => link.classList.toggle('is-active', link.getAttribute('href') === `#${entry.target.id}`));
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  tocLinks.forEach(link => {
+    const heading = document.getElementById(link.getAttribute('href').slice(1));
+    if (heading) tocObserver.observe(heading);
+  });
+}
+
+/* ---------- Contact form (contact.html) ----------
+   With SITE.contactEndpoint set, messages are POSTed there as JSON.
+   Without it, the form opens the visitor's email app (or WhatsApp, if set)
+   with the message filled in – nothing is lost and no backend is needed. */
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+  const statusBox = contactForm.querySelector('[data-form-status]');
+  const submitBtn = contactForm.querySelector('[type="submit"]');
+  const RULES = {
+    name: v => v.trim().length >= 2 || 'Please enter your name.',
+    email: v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()) || 'Please enter a valid email address.',
+    topic: v => Boolean(v) || 'Please choose a topic.',
+    message: v => v.trim().length >= 10 || 'Please write at least 10 characters.',
+  };
+
+  function validateField(field) {
+    const rule = RULES[field.name];
+    if (!rule) return true;
+    const result = rule(field.value);
+    const ok = result === true;
+    const error = document.getElementById(`${field.id}-error`);
+    field.setAttribute('aria-invalid', String(!ok));
+    if (error) {
+      error.textContent = ok ? '' : result;
+      error.hidden = ok;
+    }
+    return ok;
+  }
+
+  function showStatus(type, html) {
+    statusBox.className = `form-status is-${type}`;
+    statusBox.innerHTML = html;
+    statusBox.hidden = false;
+  }
+
+  contactForm.querySelectorAll('input, select, textarea').forEach(field => {
+    field.addEventListener('blur', () => field.value && validateField(field));
+    field.addEventListener('input', () => field.getAttribute('aria-invalid') === 'true' && validateField(field));
+  });
+
+  contactForm.addEventListener('submit', async e => {
+    e.preventDefault();
+    const fields = [...contactForm.querySelectorAll('[name]')].filter(f => RULES[f.name]);
+    const invalid = fields.filter(f => !validateField(f));
+    if (invalid.length) {
+      showStatus('error', '<strong>Please check the highlighted fields.</strong>');
+      invalid[0].focus();
+      return;
+    }
+
+    const data = Object.fromEntries(new FormData(contactForm));
+    if (data.company) return; // honeypot: bots fill the hidden field
+    const name = escapeHtml(data.name.trim());
+
+    if (SITE.contactEndpoint) {
+      submitBtn.classList.add('is-loading');
+      submitBtn.setAttribute('aria-busy', 'true');
+      try {
+        const res = await fetch(SITE.contactEndpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify({ name: data.name, email: data.email, topic: data.topic, message: data.message }),
+        });
+        if (!res.ok) throw new Error(res.status);
+        contactForm.reset();
+        showStatus('success', `<strong>Thanks, ${name}!</strong> Your message has been sent – we'll reply to ${escapeHtml(data.email)} soon.`);
+      } catch {
+        showStatus('error', `<strong>Sorry, your message couldn't be sent.</strong> Please try again, or email us at <a class="text-link" href="mailto:${SITE.email}">${SITE.email}</a>.`);
+      } finally {
+        submitBtn.classList.remove('is-loading');
+        submitBtn.removeAttribute('aria-busy');
+      }
+      return;
+    }
+
+    const subject = `[MY99EXCH] ${data.topic} – ${data.name.trim()}`;
+    const body = `${data.message.trim()}\n\n—\nName: ${data.name.trim()}\nEmail: ${data.email.trim()}`;
+    const number = SITE.whatsapp.replace(/\D/g, '');
+    const url = number
+      ? `https://wa.me/${number}?text=${encodeURIComponent(`${subject}\n\n${body}`)}`
+      : `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.open(url, number ? '_blank' : '_self');
+    showStatus('success', `<strong>Almost done, ${name}!</strong> Your ${number ? 'WhatsApp' : 'email app'} should open with your message ready – just press send. If it doesn't, email us at <a class="text-link" href="mailto:${SITE.email}">${SITE.email}</a>.`);
+  });
+}
+
+/* ---------- Arriving with a #hash (e.g. games.html#aviator): go there once cards exist ---------- */
+if (location.hash.length > 1) {
+  const target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+  if (target) {
+    setTimeout(() => {
+      const track = target.closest('[data-carousel-track]');
+      scrollToTarget(track ? track.closest('section') || track : target);
+      if (track) track.scrollTo({ left: target.offsetLeft - track.firstElementChild.offsetLeft });
+    }, 150);
+  }
 }
 
 /* ---------- Footer year ---------- */

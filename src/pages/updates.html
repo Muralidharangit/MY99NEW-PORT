@@ -1,0 +1,66 @@
+<!--
+title: Updates & News – MY99EXCH | Offers, Guides & Announcements
+description: The latest from MY99EXCH – offers, live casino highlights, payment guides and announcements. 18+ only.
+page: updates
+-->
+<main id="main">
+
+    <!-- ═════════ Page hero ═════════ -->
+    <section class="page-hero has-watermark">
+      <div class="hero-lighting" aria-hidden="true">
+        <span class="hero-beam right-0 top-[16%] w-[55%]"></span>
+        <span class="hero-beam right-0 top-[28%] w-[38%] opacity-60"></span>
+      </div>
+      <span class="section-watermark wm-top-right" data-drift="-0.12" aria-hidden="true">MY99EXCH</span>
+
+      <div class="wrap page-hero-grid">
+        <div data-reveal="left" class="reveal">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Home</a><i data-icon="chevron-right"></i><span aria-current="page">Updates</span>
+          </nav>
+          <span class="tag mt-6"><i data-icon="sparkles"></i> Updates &amp; news</span>
+          <h1 class="t-page mt-5">What's new on <span class="text-gold-grad text-glow">MY99EXCH</span></h1>
+          <p class="t-lead mt-6 max-w-[34rem]">Offers, live casino highlights, payment guides and announcements – all in one place. Check back often.</p>
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a href="#latest" class="btn btn-primary btn-lg w-full sm:w-auto">Latest Updates <i data-icon="arrow-right" class="icon-arrow"></i></a>
+            <a href="contact.html" class="btn btn-secondary btn-lg w-full sm:w-auto"><i data-icon="headset"></i> Ask Support</a>
+          </div>
+        </div>
+
+        <div data-reveal="right" class="reveal about-showcase">
+          <span class="about-floor" aria-hidden="true"></span>
+          <div class="about-art" data-parallax="0.06">
+            <img src="images/banner/bn3.webp" width="600" height="600" fetchpriority="high"
+                 alt="Players celebrating beside a phone showing the MY99EXCH betting app">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════ Latest (cards from js/posts-data.js – articles live in src/posts/) ═════════ -->
+    <section id="latest" class="section">
+      <div class="wrap">
+        <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div class="section-head reveal">
+            <p class="eyebrow">Latest stories</p>
+            <h2 class="t-h2">Offers, guides &amp; <span class="text-gold-grad">announcements</span></h2>
+          </div>
+          <div class="filter-bar reveal" role="group" aria-label="Filter updates by category" data-filter-bar="updatesList"></div>
+        </div>
+
+        <ul id="updatesList" class="blog-grid mt-10 md:mt-12" aria-label="Articles"></ul>
+
+        <!-- Shown when there are no updates yet -->
+        <div id="updatesEmpty" class="reveal glass mx-auto mt-10 max-w-3xl px-6 py-12 text-center sm:px-12" hidden>
+          <span class="icon-circle mx-auto h-14 w-14"><i data-icon="sparkles"></i></span>
+          <h3 class="t-h3-lg mt-5">Updates <span class="text-gold-grad">coming soon</span></h3>
+          <p class="t-body mx-auto mt-3 max-w-xl">We'll post new offers, games and announcements here. In the meantime, our team is happy to help with any question.</p>
+          <a href="contact.html" class="btn btn-secondary mt-8"><i data-icon="headset"></i> Contact Support</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- @include ribbons -->
+
+    <!-- @include cta -->
+  </main>

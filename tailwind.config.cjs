@@ -10,5 +10,5 @@ vm.runInNewContext(fs.readFileSync(path.join(__dirname, 'js/tailwind.config.js')
 
 module.exports = {
   ...sandbox.tailwind.config,
-  content: ['./index.html', './js/**/*.js'],
+  content: ['./*.html', './src/pages/*.html', './js/**/*.js'],
 };

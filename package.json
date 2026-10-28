@@ -1,8 +1,10 @@
 {
   "name": "my99exch-site",
   "private": true,
-  "description": "MY99EXCH landing page",
+  "description": "MY99EXCH website",
   "scripts": {
+    "build": "npm run build:pages && npm run build:css",
+    "build:pages": "node scripts/build-pages.mjs",
     "build:css": "npx --yes tailwindcss@3.4.17 -c tailwind.config.cjs -i src/tailwind.css -o css/tailwind.css --minify",
     "watch:css": "npx --yes tailwindcss@3.4.17 -c tailwind.config.cjs -i src/tailwind.css -o css/tailwind.css --watch"
   }
